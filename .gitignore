@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Выходные файлы (генерируются автоматически)
+output.xlsx
+output_test.xlsx
+
