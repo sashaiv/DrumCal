@@ -10,4 +10,13 @@ __pycache__/
 # Выходные файлы (генерируются автоматически)
 output.xlsx
 output_test.xlsx
+output*.xlsx
+result_*.xlsx
+
+# Временные файлы Microsoft Office
+~$*.xlsx
+~$*.docx
+
+# Кэш Python
+new/__pycache__/
 
