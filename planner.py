@@ -835,6 +835,16 @@ def plan(
             all_ins_uses.extend(ins_uses)
             batch.segments = actual_segs   # обновляем фактические сегменты
 
+        # Удаляем пустые партии (все сегменты были пропущены в шаге 4)
+        empty_batches = [b for b in batches if not b.segments]
+        for b in empty_batches:
+            warnings.append(
+                f'⚠ {order.mark}: партия скрутки {b.id} исключена — '
+                f'все отрезки пропущены (нехватка жил < мин. строит. длины).'
+            )
+            batches.remove(b)
+            all_batches.remove(b)
+
         # ── Шаг 5: выходные барабаны ─────────────────────────────────
         # Перестраиваем final_segs из фактических сегментов партий
         # (batch.segments уже обрезаны на шаге 4)
